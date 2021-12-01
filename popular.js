@@ -1,42 +1,46 @@
 export function renderPopular(json) {
-    const ulDetails = document.querySelector("#container .details-view ul");
-    const popularNamesArr = popNames(json);
-    
-    popularNamesArr.forEach((name) => {
-        let elem = document.createElement("li");
-        elem.append(tmpl1.content.cloneNode(true));
-        elem.querySelector("span").innerText = name;
-    
-        ulDetails.append(elem);
-    });
+  const ulDetails = document.querySelector("#container .details-view ul");
+  const popularNamesArr = popNames(json);
+
+  popularNamesArr.forEach((name) => {
+    let elem = document.createElement("li");
+    elem.append(tmpl1.content.cloneNode(true));
+    elem.querySelector("span").innerText = name;
+
+    ulDetails.append(elem);
+  });
 }
 
 function popNames(json) {
-  let arrOfFriends = json.map((item) => item.friends).flat(Infinity); //массив id всех друзей
-  let pairs = arrOfFriends.reduce(function (acc, el) {
-    //пары: "ID: количество"
-    acc[el] = (acc[el] || 0) + 1;
-    return acc;
-  }, {});
+  // ПРойтись по всему json и составить мапу с каунтом
+  // person -> 5
+  const numberOfFriendsMap = new Map();
 
-  let i = 0;
-  let namedPairs = {}; //пары: "Имя: количество"
-  for (let value in pairs) {
-    namedPairs[json[i].name] = pairs[value];
-    i++;
-  }
+  json.forEach((user) => {
+    user.friends.forEach((friendId) => {
+      if (!numberOfFriendsMap.has(friendId)) {
+        numberOfFriendsMap.set(friendId, 1);
+      } else {
+        const currentCount = numberOfFriendsMap.get(friendId);
+        numberOfFriendsMap.set(friendId, currentCount + 1);
+      }
+    });
+  }); // 36
 
-  let resultPopName = Object.entries(namedPairs).sort(function (a, b) {
-    //сортированые по имени пары: "Имя: количество"
-    return a[0] > b[0] ? 1 : -1;
+  // Отсортировать по значениям, можно применить алгоритм
+  const sortedByFriends = [...numberOfFriendsMap.entries()].sort((a, b) => {
+    if (a[1] === b[1]) {
+      const aUserName = json.find((user) => user.id === a[0]).name;
+      const bUserName = json.find((user) => user.id === b[0]).name;
+      return aUserName > bUserName ? 1 : -1;
+    }
+
+    return a[1] > b[1] ? -1 : 1;
   });
-  resultPopName = Object.fromEntries(resultPopName);
 
-  resultPopName = Object.keys(resultPopName).sort(function (a, b) {
-    //сортированые по количеству пары: "Имя: количество"
-    return resultPopName[b] - resultPopName[a];
-  });
+  const top3PopularUsers = sortedByFriends
+    .slice(0, 3)
+    .map((userInfo) => json.find((user) => user.id === userInfo[0]).name);
 
-  resultPopName = resultPopName.splice(0, 3);
-  return resultPopName;
+  return top3PopularUsers;
 }

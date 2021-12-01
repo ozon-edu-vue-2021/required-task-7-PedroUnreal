@@ -2,7 +2,7 @@ document.querySelector(".back").onclick = function () {
     document.querySelector("#container .details-view").style = "z-index: 0";
 };
 
-const START_FRIENDS_INDEX = 2;
+const START_FRIENDS_INDEX = 2; //чтобы подстроится под предложенную верстку с nth-child
 const START_NOT_FRIENDS_INDEX = 6;
 
 export function onPersonClick(person, json) {
@@ -57,8 +57,5 @@ function arrNotIncludes(friends, json) {
     }
     itemIndex++;
   }
-
-  console.log(itemIndex, 'itemIndex');
-
   return notFriendsArr;
 }
