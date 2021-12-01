@@ -60,6 +60,10 @@ body {
   cursor: pointer;
 }
 
+.back:hover {
+  cursor: pointer;
+}
+
 #container.details .details-view .background {
   -webkit-transform: translate3d(0, -40px, 0);
           transform: translate3d(0, -40px, 0);
@@ -168,6 +172,16 @@ body {
           transform: translate3d(0, 630px, 0);
 }
 
+#container .list-view ul li:nth-child(11) {
+  -webkit-transform: translate3d(0, 700px, 0);
+          transform: translate3d(0, 700px, 0);
+}
+
+#container .list-view ul li:nth-child(12) {
+  -webkit-transform: translate3d(0, 770px, 0);
+          transform: translate3d(0, 770px, 0);
+}
+
 #container .list-view ul li:hover {
   background: #efefef;
   cursor: pointer;
@@ -209,20 +223,40 @@ body {
 
 #container .details-view .back {
   position: absolute;
-  top: 20px;
+  top: 35px;
   left: 5px;
   width: 30px;
   height: 30px;
   background: url("../i/back-icon.png");
   background-size: 100%;
   border: 0;
-  -webkit-transform: scale(0.1);
+  /* -webkit-transform: scale(0.1);
           transform: scale(0.1);
   -webkit-transition: -webkit-transform 0.15s;
   transition: -webkit-transform 0.15s;
   transition: transform 0.15s;
-  transition: transform 0.15s, -webkit-transform 0.15s;
+  transition: transform 0.15s, -webkit-transform 0.15s; */
   z-index: 1;
+}
+
+.current-person {
+  position: absolute;
+  top: 40px;
+  left: 150px;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+
+.avatar {
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  width: 200px;
+  height: 200px;
+  background: url("../i/default-img.png");
+  transform: scale(0.4);
+  border-radius: 100%;
 }
 
 #container .details-view ul {
@@ -273,6 +307,78 @@ body {
 #container .details-view li:nth-child(4) {
   -webkit-transform: translate3d(0, 45px, 0);
           transform: translate3d(0, 45px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(5) {
+  -webkit-transform: translate3d(0, 50px, 0);
+          transform: translate3d(0, 50px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(6) {
+  -webkit-transform: translate3d(0, 55px, 0);
+          transform: translate3d(0, 55px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(7) {
+  -webkit-transform: translate3d(0, 60px, 0);
+          transform: translate3d(0, 60px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(8) {
+  -webkit-transform: translate3d(0, 65px, 0);
+          transform: translate3d(0, 65px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(9) {
+  -webkit-transform: translate3d(0, 70px, 0);
+          transform: translate3d(0, 70px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(10) {
+  -webkit-transform: translate3d(0, 75px, 0);
+          transform: translate3d(0, 75px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(11) {
+  -webkit-transform: translate3d(0, 80px, 0);
+          transform: translate3d(0, 80px, 0);
+  -webkit-transition: -webkit-transform 0.3s 0.06s;
+  transition: -webkit-transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s;
+  transition: transform 0.3s 0.06s, -webkit-transform 0.3s 0.06s;
+}
+
+#container .details-view li:nth-child(12) {
+  -webkit-transform: translate3d(0, 85px, 0);
+          transform: translate3d(0, 85px, 0);
   -webkit-transition: -webkit-transform 0.3s 0.06s;
   transition: -webkit-transform 0.3s 0.06s;
   transition: transform 0.3s 0.06s;
